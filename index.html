@@ -1,0 +1,647 @@
+<html>
+    <head>
+        <title>Tran Bao Kha</title>
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/kyletran191/host/main/bug.png">
+    </head>
+    <style>
+       
+
+        body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-family: "proxima-nova-soft", sans-serif;
+        overflow: hidden;
+        
+        .vertical-centered-box {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            &:after {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            margin-right: -0.25em;
+            }
+            .content {
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+            font-size: 0;
+            }
+        }
+        }
+
+        * {
+        transition: all .3s;
+        }
+        a, a:hover {
+  text-decoration: none;
+  color: #6944ff;
+}
+ 
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+        body {
+        background: mix(#3f3251, #002025, 70%);
+        }
+
+        #prism-logo {
+        path {
+            fill: #20293b;
+            stroke: rgba(255,255,255,1);
+            stroke-width: 1px;
+        }
+        }
+
+        .loader-circle {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+        margin-left: -60px;
+        margin-top: -60px;
+      
+        }
+
+        .loader-line-mask {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 60px;
+        height: 120px;
+        margin-left: -60px;
+        margin-top: -60px;
+        overflow: hidden;
+        transform-origin: 60px 60px;
+        
+        animation: rotate 1.2s infinite linear;
+        .loader-line {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.5);
+        }
+        }
+
+        #particles-background, #particles-foreground {
+        left: -51%;
+        top: -51%;
+        width: 202%;
+        height: 202%;
+        transform: scale3d(.5, .5, 1);
+        }
+
+        #particles-background {
+        background: mix(#3f3251, #002025, 70%);
+        background-image: -moz-linear-gradient(45deg, #3f3251 2%, #002025 100%);
+        background-image: -webkit-linear-gradient(45deg, #3f3251 2%, #002025 100%);
+        background-image: linear-gradient(45deg, #3f3251 2%, #002025 100%);
+        }
+
+        @keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);}}
+
+        @keyframes fade { 0% { opacity: 1;} 50% { opacity: 0.25;}}
+
+        @keyframes fade-in { 0% { opacity: 0;} 100% { opacity: 1;}}
+        @media screen and (max-width: 768px) {
+        .wrapper {
+            height: auto;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+        }
+ 
+        .profile-card {
+  background-image: linear-gradient(0, #9c6cac, #0055a8);
+  background-blend-mode: multiply;
+  background-color: #0000006c;
+          background: #292b2f;
+          border-radius: 9px;
+          box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.2);
+          -webkit-box-shadow: 0px 0px 16px 3px rgba(0, 0, 0, 0.2);
+          scrollbar-width: none;
+        width: 100%;
+        min-height: 460px;
+        max-width: 700px;
+        position: relative;
+        }
+        .profile-card.active .profile-card__cnt {
+        filter: blur(6px);
+        }
+        .profile-card.active .profile-card-message,
+        .profile-card.active .profile-card__overlay {
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: .1s;
+        }
+        .profile-card.active .profile-card-form {
+        transform: none;
+        transition-delay: .1s;
+        }
+        .profile-card__img {
+        width: 150px;
+        height: 150px;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(-50%);
+        border-radius: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: 4;
+        box-shadow: 0px 5px 50px 0px #d651ff, 0px 0px 0px 7px #0055a8;
+        }
+        @media screen and (max-width: 576px) {
+        .profile-card__img {
+            width: 120px;
+            height: 120px;
+        }
+        }
+        .profile-card__img img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+        }
+        .profile-card__cnt {
+        margin-top: -35px;
+        text-align: center;
+        padding: 0 20px;
+        padding-bottom: 40px;
+        transition: all .3s;
+        }
+        .profile-card__name {
+        font-weight: 700;
+        font-size: 24px;
+        color: #6944ff;
+        margin-bottom: 15px;
+        }
+        .profile-card__txt {
+        font-size: 18px;
+        font-weight: 500;
+        color: #324e63;
+        margin-bottom: 15px;
+        }
+        .profile-card__txt strong {
+        font-weight: 500;
+        }
+        .profile-card-loc {
+        display: flex;
+        justify-content: center;
+        color: #fff;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 600;
+        }
+        .profile-card-loc__icon {
+        display: inline-flex;
+        font-size: 27px;
+        margin-right: 10px;
+        }
+        .profile-card-inf {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        margin-top: 35px;
+        }
+        .profile-card-inf__item {
+        padding: 10px 35px;
+        min-width: 150px;
+        }
+        @media screen and (max-width: 768px) {
+        .profile-card-inf__item {
+            padding: 10px 20px;
+            min-width: 120px;
+        }
+        }
+        .profile-card-inf__title {
+        font-weight: 700;
+        font-size: 27px;
+        color: #324e63;
+        }
+        .profile-card-inf__txt {
+        font-weight: 500;
+        margin-top: 7px;
+        }
+        .profile-card-social {
+        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        }
+        .profile-card-social__item {
+        display: inline-flex;
+        width: 56px;
+        height: 56px;
+        margin: 16px;
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: #405de6;
+        box-shadow: 0px 7px 30px rgba(43, 98, 169, 0.5);
+        position: relative;
+        font-size: 21px;
+        flex-shrink: 0;
+        transition: all .3s;
+        }
+        @media screen and (max-width: 768px) {
+        .profile-card-social__item {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+        }
+        @media screen and (min-width: 768px) {
+        .profile-card-social__item:hover {
+            transform: scale(1.2);
+        }
+        }
+        .profile-card-social__item.facebook {
+        background: linear-gradient(45deg, #3b5998, #0078d7);
+        box-shadow: 0px 4px 30px rgba(43, 98, 169, 0.5);
+        }
+        .profile-card-social__item.twitter {
+        background: linear-gradient(45deg, #1da1f2, #0e71c8);
+        box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.7);
+        }
+        .profile-card-social__item.instagram {
+        background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        box-shadow: 0px 4px 30px rgba(120, 64, 190, 0.6);
+        }
+        .profile-card-social__item.behance {
+        background: linear-gradient(45deg, #1769ff, #213fca);
+        box-shadow: 0px 4px 30px rgba(27, 86, 231, 0.7);
+        }
+        .profile-card-social__item.github {
+        background: linear-gradient(45deg, #333333, #626b73);
+        box-shadow: 0px 4px 30px rgba(63, 65, 67, 0.6);
+        }
+        .profile-card-social__item.codepen {
+        background: linear-gradient(45deg, #324e63, #414447);
+        box-shadow: 0px 4px 30px rgba(55, 75, 90, 0.6);
+        }
+        .profile-card-social__item.link {
+        background: linear-gradient(45deg, #d5135a, #f05924);
+        box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.6);
+        }
+        .profile-card-social .icon-font {
+        display: inline-flex;
+        }
+        .profile-card-ctr {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px;
+        }
+        @media screen and (max-width: 576px) {
+        .profile-card-ctr {
+            flex-wrap: wrap;
+        }
+        }
+        .profile-card__button {
+        background: none;
+        border: none;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 700;
+        font-size: 19px;
+        margin: 15px 35px;
+        padding: 15px 40px;
+        min-width: 201px;
+        border-radius: 50px;
+        min-height: 56px;
+        color: #fff;
+        cursor: pointer;
+        backface-visibility: hidden;
+        transition: all .3s;
+        }
+        @media screen and (max-width: 768px) {
+        .profile-card__button {
+            min-width: 170px;
+            margin: 15px 25px;
+        }
+        }
+        @media screen and (max-width: 576px) {
+        .profile-card__button {
+            min-width: inherit;
+            margin: 0;
+            margin-bottom: 16px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .profile-card__button:last-child {
+            margin-bottom: 0;
+        }
+        }
+        .profile-card__button:focus {
+        outline: none !important;
+        }
+        @media screen and (min-width: 768px) {
+        .profile-card__button:hover {
+            transform: translateY(-5px);
+        }
+        }
+        .profile-card__button:first-child {
+        margin-left: 0;
+        }
+        .profile-card__button:last-child {
+        margin-right: 0;
+        }
+        .profile-card__button.button--blue {
+        background: linear-gradient(45deg, #1da1f2, #0e71c8);
+        box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.4);
+        }
+        .profile-card__button.button--blue:hover {
+        box-shadow: 0px 7px 30px rgba(19, 127, 212, 0.75);
+        }
+        .profile-card__button.button--orange {
+        background: linear-gradient(45deg, #d5135a, #f05924);
+        box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.35);
+        }
+        .profile-card__button.button--orange:hover {
+        box-shadow: 0px 7px 30px rgba(223, 45, 70, 0.75);
+        }
+        .profile-card__button.button--gray {
+        box-shadow: none;
+        background: #dcdcdc;
+        color: #142029;
+        }
+        .profile-card-message {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 130px;
+        padding-bottom: 100px;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s;
+        }
+        .profile-card-form {
+        box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        background: #fff;
+        border-radius: 10px;
+        padding: 35px;
+        transform: scale(0.8);
+        position: relative;
+        z-index: 3;
+        transition: all .3s;
+        }
+        @media screen and (max-width: 768px) {
+        .profile-card-form {
+            max-width: 90%;
+            height: auto;
+        }
+        }
+        @media screen and (max-width: 576px) {
+        .profile-card-form {
+            padding: 20px;
+        }
+        }
+        .profile-card-form__bottom {
+        justify-content: space-between;
+        display: flex;
+        }
+        @media screen and (max-width: 576px) {
+        .profile-card-form__bottom {
+            flex-wrap: wrap;
+        }
+        }
+        .profile-card textarea {
+        width: 100%;
+        resize: none;
+        height: 210px;
+        margin-bottom: 20px;
+        border: 2px solid #dcdcdc;
+        border-radius: 10px;
+        padding: 15px 20px;
+        color: #324e63;
+        font-weight: 500;
+
+        outline: none;
+        transition: all .3s;
+        }
+        .profile-card textarea:focus {
+        outline: none;
+        border-color: #8a979e;
+        }
+        .profile-card__overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        opacity: 0;
+        background: rgba(22, 33, 72, 0.35);
+        border-radius: 12px;
+        transition: all .3s;
+        }
+        
+        [hidden], template {
+            display: none;
+        }
+        ul.contextMenu {
+        background: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 10px 20px;
+        border-radius: 100px;
+        color: #ff6460;
+        box-shadow: 0 0 70px rgba(0, 0, 0, .25);
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        z-index: 999999;
+        position: fixed;
+        top: 50%!important;
+        left: 50%!important;
+        transform: translate(-50%, -50%);
+        pointer-events: none
+        }
+        h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+.nitro-card {
+  position: relative;
+  background-image: linear-gradient(0, #9c6cac, #0055a8);
+  background-blend-mode: multiply;
+  background-color: #0000006c;
+}
+
+.nitro-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: 12px;
+  background: linear-gradient(0, #d651ff, #0055a8);
+}
+@import url(https://fonts.googleapis.com/css?family=Iceland);
+.container {
+  display: flex;
+/*   border:1px solid red; */
+  height: 25%;
+  align-items: center;
+}
+
+svg {
+    display: block;
+    font: 10.5em 'Iceland';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #0f0;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: silver;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #4169e1;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: red;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #0ff;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+
+    </style>
+    <body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;">
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class='profile-card js-profile-card'>
+                    <div class="nitro-card">
+                    <div class='profile-card__img'>
+                      <img alt='profile card' src='https://raw.githubusercontent.com/kyletran191/host/main/kyle.jpg'/> 
+                    </div>
+                    <div class='profile-card__cnt js-profile-cnt'>
+                      <div class='profile-card__name'>Tran Bao Kha <img width="20" height="20" src="https://camo.githubusercontent.com/36a027b0d63ea1ff03300e09aefc7f9d85b47b8a08e46e198c0e14461ba5e276/68747470733a2f2f696d672e69636f6e73382e636f6d2f696f732d676c797068732f33302f3232384245362f6f6b2d2d76312e706e67" alt="Verified" data-canonical-src="https://img.icons8.com/ios-glyphs/30/228BE6/ok--v1.png" style="max-width: 100%;"></div> 
+                      <div class='profile-card__txt'>
+                        <div class="container">
+                          <svg viewBox="0 0 960 300">
+                            <symbol id="s-text">
+                              <text text-anchor="middle" x="50%" y="70%">KT0XD</text>
+                            </symbol>
+
+                            <g class = "g-ants">
+                              <use xlink:href="#s-text" class="text-copy"></use>
+                              <use xlink:href="#s-text" class="text-copy"></use>
+                              <use xlink:href="#s-text" class="text-copy"></use>
+                              <use xlink:href="#s-text" class="text-copy"></use>
+                              <use xlink:href="#s-text" class="text-copy"></use>
+                            </g>
+                          </svg>
+                        </div>
+                                                
+                      </div> 
+                      <div class='profile-card-loc'>
+                        <span class='profile-card-loc__txt'> 
+                        Contact: <a target="_blank" href="mailto:info@kyleworkx.space">info@kyleworkx.space</a>
+                            <br><br>
+                          Github: <a href="https://github.com/kyletran191" target="_blank">kyletran191</a>
+                          <br><br><br>
+                          <h4>&copy; 2023 Copyright Tran Bao Kha</h4>
+                        </span>
+                        
+                      </div>
+                
+                      
+                    </div>
+                    
+        </div>
+    </div>
+        </div>
+        </div>
+    </body>
+    <script>
+        !function(a,b){"use strict";function c(a){a=a||{};for(var b=1;b<arguments.length;b++){var c=arguments[b];if(c)for(var d in c)c.hasOwnProperty(d)&&("object"==typeof c[d]?deepExtend(a[d],c[d]):a[d]=c[d])}return a}function d(d,g){function h(){if(y){r=b.createElement("canvas"),r.className="pg-canvas",r.style.display="block",d.insertBefore(r,d.firstChild),s=r.getContext("2d"),i();for(var c=Math.round(r.width*r.height/g.density),e=0;c>e;e++){var f=new n;f.setStackPos(e),z.push(f)}a.addEventListener("resize",function(){k()},!1),b.addEventListener("mousemove",function(a){A=a.pageX,B=a.pageY},!1),D&&!C&&a.addEventListener("deviceorientation",function(){F=Math.min(Math.max(-event.beta,-30),30),E=Math.min(Math.max(-event.gamma,-30),30)},!0),j(),q("onInit")}}function i(){r.width=d.offsetWidth,r.height=d.offsetHeight,s.fillStyle=g.dotColor,s.strokeStyle=g.lineColor,s.lineWidth=g.lineWidth}function j(){if(y){u=a.innerWidth,v=a.innerHeight,s.clearRect(0,0,r.width,r.height);for(var b=0;b<z.length;b++)z[b].updatePosition();for(var b=0;b<z.length;b++)z[b].draw();G||(t=requestAnimationFrame(j))}}function k(){i();for(var a=d.offsetWidth,b=d.offsetHeight,c=z.length-1;c>=0;c--)(z[c].position.x>a||z[c].position.y>b)&&z.splice(c,1);var e=Math.round(r.width*r.height/g.density);if(e>z.length)for(;e>z.length;){var f=new n;z.push(f)}else e<z.length&&z.splice(e);for(c=z.length-1;c>=0;c--)z[c].setStackPos(c)}function l(){G=!0}function m(){G=!1,j()}function n(){switch(this.stackPos,this.active=!0,this.layer=Math.ceil(3*Math.random()),this.parallaxOffsetX=0,this.parallaxOffsetY=0,this.position={x:Math.ceil(Math.random()*r.width),y:Math.ceil(Math.random()*r.height)},this.speed={},g.directionX){case"left":this.speed.x=+(-g.maxSpeedX+Math.random()*g.maxSpeedX-g.minSpeedX).toFixed(2);break;case"right":this.speed.x=+(Math.random()*g.maxSpeedX+g.minSpeedX).toFixed(2);break;default:this.speed.x=+(-g.maxSpeedX/2+Math.random()*g.maxSpeedX).toFixed(2),this.speed.x+=this.speed.x>0?g.minSpeedX:-g.minSpeedX}switch(g.directionY){case"up":this.speed.y=+(-g.maxSpeedY+Math.random()*g.maxSpeedY-g.minSpeedY).toFixed(2);break;case"down":this.speed.y=+(Math.random()*g.maxSpeedY+g.minSpeedY).toFixed(2);break;default:this.speed.y=+(-g.maxSpeedY/2+Math.random()*g.maxSpeedY).toFixed(2),this.speed.x+=this.speed.y>0?g.minSpeedY:-g.minSpeedY}}function o(a,b){return b?void(g[a]=b):g[a]}function p(){console.log("destroy"),r.parentNode.removeChild(r),q("onDestroy"),f&&f(d).removeData("plugin_"+e)}function q(a){void 0!==g[a]&&g[a].call(d)}var r,s,t,u,v,w,x,y=!!b.createElement("canvas").getContext,z=[],A=0,B=0,C=!navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i),D=!!a.DeviceOrientationEvent,E=0,F=0,G=!1;return g=c({},a[e].defaults,g),n.prototype.draw=function(){s.beginPath(),s.arc(this.position.x+this.parallaxOffsetX,this.position.y+this.parallaxOffsetY,g.particleRadius/2,0,2*Math.PI,!0),s.closePath(),s.fill(),s.beginPath();for(var a=z.length-1;a>this.stackPos;a--){var b=z[a],c=this.position.x-b.position.x,d=this.position.y-b.position.y,e=Math.sqrt(c*c+d*d).toFixed(2);e<g.proximity&&(s.moveTo(this.position.x+this.parallaxOffsetX,this.position.y+this.parallaxOffsetY),g.curvedLines?s.quadraticCurveTo(Math.max(b.position.x,b.position.x),Math.min(b.position.y,b.position.y),b.position.x+b.parallaxOffsetX,b.position.y+b.parallaxOffsetY):s.lineTo(b.position.x+b.parallaxOffsetX,b.position.y+b.parallaxOffsetY))}s.stroke(),s.closePath()},n.prototype.updatePosition=function(){if(g.parallax){if(D&&!C){var a=(u-0)/60;w=(E- -30)*a+0;var b=(v-0)/60;x=(F- -30)*b+0}else w=A,x=B;this.parallaxTargX=(w-u/2)/(g.parallaxMultiplier*this.layer),this.parallaxOffsetX+=(this.parallaxTargX-this.parallaxOffsetX)/10,this.parallaxTargY=(x-v/2)/(g.parallaxMultiplier*this.layer),this.parallaxOffsetY+=(this.parallaxTargY-this.parallaxOffsetY)/10}var c=d.offsetWidth,e=d.offsetHeight;switch(g.directionX){case"left":this.position.x+this.speed.x+this.parallaxOffsetX<0&&(this.position.x=c-this.parallaxOffsetX);break;case"right":this.position.x+this.speed.x+this.parallaxOffsetX>c&&(this.position.x=0-this.parallaxOffsetX);break;default:(this.position.x+this.speed.x+this.parallaxOffsetX>c||this.position.x+this.speed.x+this.parallaxOffsetX<0)&&(this.speed.x=-this.speed.x)}switch(g.directionY){case"up":this.position.y+this.speed.y+this.parallaxOffsetY<0&&(this.position.y=e-this.parallaxOffsetY);break;case"down":this.position.y+this.speed.y+this.parallaxOffsetY>e&&(this.position.y=0-this.parallaxOffsetY);break;default:(this.position.y+this.speed.y+this.parallaxOffsetY>e||this.position.y+this.speed.y+this.parallaxOffsetY<0)&&(this.speed.y=-this.speed.y)}this.position.x+=this.speed.x,this.position.y+=this.speed.y},n.prototype.setStackPos=function(a){this.stackPos=a},h(),{option:o,destroy:p,start:m,pause:l}}var e="particleground",f=a.jQuery;a[e]=function(a,b){return new d(a,b)},a[e].defaults={minSpeedX:.1,maxSpeedX:.7,minSpeedY:.1,maxSpeedY:.7,directionX:"center",directionY:"center",density:1e4,dotColor:"#666666",lineColor:"#666666",particleRadius:7,lineWidth:1,curvedLines:!1,proximity:100,parallax:!0,parallaxMultiplier:5,onInit:function(){},onDestroy:function(){}},f&&(f.fn[e]=function(a){if("string"==typeof arguments[0]){var b,c=arguments[0],g=Array.prototype.slice.call(arguments,1);return this.each(function(){f.data(this,"plugin_"+e)&&"function"==typeof f.data(this,"plugin_"+e)[c]&&(b=f.data(this,"plugin_"+e)[c].apply(this,g))}),void 0!==b?b:this}return"object"!=typeof a&&a?void 0:this.each(function(){f.data(this,"plugin_"+e)||f.data(this,"plugin_"+e,new d(this,a))})})}(window,document),
+        function(){for(var a=0,b=["ms","moz","webkit","o"],c=0;c<b.length&&!window.requestAnimationFrame;++c)window.requestAnimationFrame=window[b[c]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[b[c]+"CancelAnimationFrame"]||window[b[c]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(b){var c=(new Date).getTime(),d=Math.max(0,16-(c-a)),e=window.setTimeout(function(){b(c+d)},d);return a=c+d,e}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(a){clearTimeout(a)})}();
+
+
+        particleground(document.getElementById('particles-foreground'), {
+        dotColor: 'rgba(255, 255, 255, 1)',
+        lineColor: 'rgba(255, 255, 255, 0.05)',
+        minSpeedX: 0.3,
+        maxSpeedX: 0.6,
+        minSpeedY: 0.3,
+        maxSpeedY: 0.6,
+        density: 50000, 
+        curvedLines: false,
+        proximity: 250, 
+        parallaxMultiplier: 10, 
+        particleRadius: 5, 
+        });
+
+        particleground(document.getElementById('particles-background'), {
+        dotColor: 'rgba(255, 255, 255, 0.5)',
+        lineColor: 'rgba(255, 255, 255, 0.05)',
+        minSpeedX: 0.075,
+        maxSpeedX: 0.15,
+        minSpeedY: 0.075,
+        maxSpeedY: 0.15,
+        density: 30000,
+        curvedLines: false,
+        proximity: 20, 
+        parallaxMultiplier: 20, 
+        particleRadius: 3, 
+        });
+    </script>
+</html>
